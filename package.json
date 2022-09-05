@@ -1,0 +1,22 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  "express": "^4.16.4",
+  "url": "git+https://github.com/austindavis95/note-taker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austindavis95/note-taker"
+  },
+  "homepage": "https://github.com/austindavis95/note-taker/blob/main/README.md"
+}
+  
+  
