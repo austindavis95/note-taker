@@ -1,36 +1,23 @@
-let fs = require('fs');
-let router = require('express').Router();
-let notes  = require('../data/notes.json');
-let path = require('path');
+const fs = require('fs');
+const router = require('express').Router();
+const { v4: uuidv4 } = require('uuid');
+const {notes}  = require('../data/db.json');
+const path = require('path');
+const {createNewNote} = require('../lib/notes');
 
 //route to post to database
 router.get('/notes', (req, res) => {
-    res.json(notes);
+    let results = notes;
+    res.json(results);
 });
 
 //route to post to server
 router.post('/notes', (req, res) => {
-    req.body.id = notes.length.toString();
-    let note = createNewNote(req.body, notes);
-    res.json(note);
-    
-    fs.writeFileSync(
-        path.join(__dirname, '../data/db.json'),
-        JSON.stringify(notes)
-    );
+    req.body.id = uuidv4();
+    const newNote = createNewNote(req.body, notes);
+    res.json(newNote);
+
 });
 
-function createNewNote(body, notesArray) {
-    const note = body;
-    notesArray.push(note);
 
-    fs.writeFileSync(
-        path.join(__dirname, '../db/db.json'),
-        JSON.stringify({
-            notes: notesArray
-        }, null, 2)
-    )
-
-    return note;
-};
 module.exports = router;

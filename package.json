@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-  "express": "^4.16.4",
-  "url": "git+https://github.com/austindavis95/note-taker/issues"
+    "express": "^4.16.4",
+    "uuid": "^8.3.2"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,3 @@
   },
   "homepage": "https://github.com/austindavis95/note-taker/blob/main/README.md"
 }
-  
-  
