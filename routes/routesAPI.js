@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
 const {notes}  = require('../data/db.json');
 const path = require('path');
-const {createNewNote} = require('../lib/notes');
+const {createNewNote, updateNote} = require('../lib/notes');
 
 //route to post to database
 router.get('/notes', (req, res) => {
@@ -17,6 +17,12 @@ router.post('/notes', (req, res) => {
     const newNote = createNewNote(req.body, notes);
     res.json(newNote);
 
+});
+
+router.delete('/notes/:id', (req, res) => {
+const params = req.params.id
+updateNote(params,notes);
+res.redirect('');
 });
 
 
